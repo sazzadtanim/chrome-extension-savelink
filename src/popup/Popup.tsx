@@ -26,7 +26,7 @@ export const Popup = () => {
     const currentUrl = await getCurrentTab()
     chrome.runtime.sendMessage({
       type: 'post',
-      url: url.api.local,
+      url: url.api.server,
       userName: 'Mohammad Sazzad Hossain',
       link: currentUrl
     })
@@ -35,7 +35,7 @@ export const Popup = () => {
 
   function gotoUrl() {
     chrome.tabs.update({
-      url: url.goto.local
+      url: url.goto.server
     })
   }
 
