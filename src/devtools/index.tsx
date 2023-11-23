@@ -6,9 +6,14 @@ import './index.css'
 ReactDOM.createRoot(document.getElementById('app') as HTMLElement).render(
   <React.StrictMode>
     <DevTools />
-  </React.StrictMode>,
+  </React.StrictMode>
 )
 
-chrome.devtools.panels.create('ReactCrx', '', '../../devtools.html', function () {
-  console.log('devtools panel create')
-})
+chrome.devtools.panels.create(
+  'ReactCrx',
+  '',
+  '../../devtools.html',
+  function () {
+    console.log('devtools panel create')
+  }
+)

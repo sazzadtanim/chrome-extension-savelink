@@ -12,11 +12,11 @@ export default defineConfig(({ mode }) => {
       outDir: 'build',
       rollupOptions: {
         output: {
-          chunkFileNames: 'assets/chunk-[hash].js',
-        },
-      },
+          chunkFileNames: 'assets/chunk-[hash].js'
+        }
+      }
     },
 
-    plugins: [crx({ manifest }), react()],
+    plugins: [crx({ manifest }), react()]
   }
 })
