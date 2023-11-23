@@ -2,6 +2,17 @@ import { useState } from 'react'
 import './Popup.css'
 
 export const Popup = () => {
+  const url = {
+    goto: {
+      local: 'http://localhost:3000',
+      server: 'https://nextjs-backend-for-chrome-extension-savelink.vercel.app'
+    },
+    api: {
+      local: 'http://localhost:3000/api/test',
+      server:
+        'https://nextjs-backend-for-chrome-extension-savelink.vercel.app/api/test'
+    }
+  }
   const [savedLink, setSavedLink] = useState(false)
   async function getCurrentTab() {
     // defining rules
@@ -12,26 +23,18 @@ export const Popup = () => {
   }
 
   async function postDataToURL() {
-    // chrome.runtime.sendMessage("working");
     const currentUrl = await getCurrentTab()
-    chrome.runtime.sendMessage(
-      {
-        type: 'post',
-        url: 'http://localhost:3000/api/test',
-        // url: "https://jsonplaceholder.typicode.com/posts",
-        userName: 'Mohammad Sazzad Hossain',
-        link: currentUrl
-      },
-      response => {
-        setSavedLink(true)
-        console.log('response', JSON.stringify(response, null, 2))
-      }
-    )
+    chrome.runtime.sendMessage({
+      type: 'post',
+      url: url.api.local,
+      userName: 'Mohammad Sazzad Hossain',
+      link: currentUrl
+    })
   }
 
   function gotoUrl() {
     chrome.tabs.update({
-      url: 'http://localhost:3000/'
+      url: url.goto.local
     })
   }
 

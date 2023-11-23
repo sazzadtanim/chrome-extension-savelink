@@ -18,7 +18,9 @@ export default defineManifest({
   },
   options_page: 'options.html',
   devtools_page: 'devtools.html',
-  host_permissions: ['http://localhost:3000/api/test'],
+  host_permissions: [
+    'https://nextjs-backend-for-chrome-extension-savelink.vercel.app','http://localhost:3000'
+  ],
   background: {
     service_worker: 'src/background/index.ts',
     type: 'module'
