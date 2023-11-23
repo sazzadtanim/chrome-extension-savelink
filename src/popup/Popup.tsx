@@ -1,16 +1,21 @@
 import "./Popup.css";
 
 export const Popup = () => {
-  const onSave = () => {
-    chrome.runtime.sendMessage({
-      type: "COUNT",
-      message: "link clicked",
-    });
+  const onSave = async () => {
+    chrome.runtime.sendMessage("link clicked");
   };
+
+  async function getCurrentTab() {
+    // defining rules
+    let queryOptions = { active: true, lastFocusedWindow: true };
+    // `tab` will either be a `tabs.Tab` instance or `undefined`.
+    let [tab] = await chrome.tabs.query(queryOptions);
+    chrome.runtime.sendMessage(tab.url);
+  }
 
   return (
     <main>
-      <button onClick={onSave}>Save link</button>
+      <button onClick={() => getCurrentTab()}>Save link</button>
     </main>
   );
 };
