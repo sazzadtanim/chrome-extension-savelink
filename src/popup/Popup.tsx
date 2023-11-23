@@ -20,7 +20,7 @@ export const Popup = () => {
         url: 'http://localhost:3000/api/test',
         // url: "https://jsonplaceholder.typicode.com/posts",
         userName: 'Mohammad Sazzad Hossain',
-        link: 'http://localhost:3000/api/test'
+        link: currentUrl
       },
       response => {
         setSavedLink(true)
@@ -29,11 +29,18 @@ export const Popup = () => {
     )
   }
 
+  function gotoUrl() {
+    chrome.tabs.update({
+      url: 'http://localhost:3000/'
+    })
+  }
+
   return (
-    <main>
+    <main className='flex'>
       <button onClick={postDataToURL}>
         {savedLink ? 'Saved' : 'Save link'}
       </button>
+      <button onClick={gotoUrl}>collections</button>
     </main>
   )
 }
