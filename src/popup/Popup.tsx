@@ -40,16 +40,18 @@ export const Popup = () => {
   }
 
   return (
-    <main className='bg-transparent w-60 h-20 rounded-3xl justify-center items-center flex flex-col'>
+    <main className='bg-transparent w-60 rounded-3xl justify-center items-center flex flex-col m-2'>
       <button
         onClick={postDataToURL}
-        className={`ring-2 px-3 py-2 w-fit hover:bg-blue-300 ${
-          savedLink ? 'bg-green-500' : 'bg-blue-50 '
+        className={`border-2 px-3 py-2 w-fit hover:bg-blue-300 hover:text-white rounded-md ${
+          savedLink ? 'bg-green-500 text-white' : 'bg-blue-50 '
         }`}
       >
         {savedLink ? 'Saved' : 'Save link'}
       </button>
-      <button onClick={gotoUrl}>collections</button>
+      <button onClick={gotoUrl} className='underline'>
+        collections
+      </button>
     </main>
   )
 }
