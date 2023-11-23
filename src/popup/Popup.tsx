@@ -30,6 +30,7 @@ export const Popup = () => {
       userName: 'Mohammad Sazzad Hossain',
       link: currentUrl
     })
+    setSavedLink(true)
   }
 
   function gotoUrl() {
