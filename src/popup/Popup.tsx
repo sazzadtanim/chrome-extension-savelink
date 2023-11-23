@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './Popup.css'
+import './index.css'
 
 export const Popup = () => {
   const url = {
@@ -40,8 +40,13 @@ export const Popup = () => {
   }
 
   return (
-    <main className='flex'>
-      <button onClick={postDataToURL}>
+    <main className='bg-transparent w-60 h-20 rounded-3xl justify-center items-center flex flex-col'>
+      <button
+        onClick={postDataToURL}
+        className={`ring-2 px-3 py-2 w-fit hover:bg-blue-300 ${
+          savedLink ? 'bg-green-500' : 'bg-blue-50 '
+        }`}
+      >
         {savedLink ? 'Saved' : 'Save link'}
       </button>
       <button onClick={gotoUrl}>collections</button>

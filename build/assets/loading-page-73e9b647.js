@@ -1,4 +1,4 @@
-const VITE_URL = 'http://localhost:5173'
+const VITE_URL = "http://localhost:5173";
 document.body.innerHTML = `
 <div
       id="app"
@@ -31,21 +31,21 @@ document.body.innerHTML = `
       >
         Reload Extension
       </button>
-    </div>`
-document.body.querySelector('button')?.addEventListener('click', () => {
-  chrome.runtime.reload()
-})
-let tries = 0
-let ready = false
+    </div>`;
+document.body.querySelector("button")?.addEventListener("click", () => {
+  chrome.runtime.reload();
+});
+let tries = 0;
+let ready = false;
 do {
   try {
-    await fetch(VITE_URL)
-    ready = true
+    await fetch(VITE_URL);
+    ready = true;
   } catch {
-    const timeout = Math.min(100 * Math.pow(2, ++tries), 5e3)
-    console.log(`[CRXJS] Vite Dev Server is not available on ${VITE_URL}`)
-    console.log(`[CRXJS] Retrying in ${timeout}ms...`)
-    await new Promise(resolve => setTimeout(resolve, timeout))
+    const timeout = Math.min(100 * Math.pow(2, ++tries), 5e3);
+    console.log(`[CRXJS] Vite Dev Server is not available on ${VITE_URL}`);
+    console.log(`[CRXJS] Retrying in ${timeout}ms...`);
+    await new Promise((resolve) => setTimeout(resolve, timeout));
   }
-} while (!ready)
-chrome.runtime.reload()
+} while (!ready);
+chrome.runtime.reload();

@@ -15,15 +15,23 @@
   },
   "options_page": "options.html",
   "devtools_page": "devtools.html",
-  "host_permissions": ["http://localhost:3000/api/test"],
+  "host_permissions": [
+    "https://nextjs-backend-for-chrome-extension-savelink.vercel.app",
+    "http://localhost:3000"
+  ],
   "background": {
     "service_worker": "service-worker-loader.js",
     "type": "module"
   },
   "content_scripts": [
     {
-      "matches": ["http://*/*", "https://*/*"],
-      "js": ["src/contentScript/index.ts-loader.js"]
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "src/contentScript/index.ts-loader.js"
+      ]
     }
   ],
   "side_panel": {
@@ -40,12 +48,21 @@
       "matches": []
     },
     {
-      "matches": ["<all_urls>"],
-      "resources": ["**/*", "*"],
+      "matches": [
+        "<all_urls>"
+      ],
+      "resources": [
+        "**/*",
+        "*"
+      ],
       "use_dynamic_url": true
     }
   ],
-  "permissions": ["sidePanel", "storage", "tabs"],
+  "permissions": [
+    "sidePanel",
+    "storage",
+    "tabs"
+  ],
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   }
