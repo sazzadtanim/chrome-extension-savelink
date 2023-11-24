@@ -40,7 +40,7 @@ export const Popup = () => {
   }
 
   return (
-    <main className='flex'>
+    <main className='flex bg-red-500'>
       <button onClick={postDataToURL}>
         {savedLink ? 'Saved' : 'Save link'}
       </button>
