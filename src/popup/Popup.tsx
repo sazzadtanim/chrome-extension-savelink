@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './Popup.css'
 
 export const Popup = () => {
   const url = {
@@ -40,7 +39,7 @@ export const Popup = () => {
   }
 
   return (
-    <main className='flex bg-red-500'>
+    <main className=''>
       <button onClick={postDataToURL}>
         {savedLink ? 'Saved' : 'Save link'}
       </button>
