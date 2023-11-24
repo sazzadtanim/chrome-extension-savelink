@@ -25,12 +25,12 @@
   },
   "content_scripts": [
     {
+      "js": [
+        "assets/index.ts-loader-21281b59.js"
+      ],
       "matches": [
         "http://*/*",
         "https://*/*"
-      ],
-      "js": [
-        "src/contentScript/index.ts-loader.js"
       ]
     }
   ],
@@ -39,21 +39,22 @@
   },
   "web_accessible_resources": [
     {
+      "matches": [],
       "resources": [
         "img/logo-16.png",
         "img/logo-34.png",
         "img/logo-48.png",
         "img/logo-128.png"
       ],
-      "matches": []
+      "use_dynamic_url": false
     },
     {
       "matches": [
-        "<all_urls>"
+        "http://*/*",
+        "https://*/*"
       ],
       "resources": [
-        "**/*",
-        "*"
+        "assets/chunk-5135a214.js"
       ],
       "use_dynamic_url": true
     }
@@ -62,8 +63,5 @@
     "sidePanel",
     "storage",
     "tabs"
-  ],
-  "chrome_url_overrides": {
-    "newtab": "newtab.html"
-  }
+  ]
 }
