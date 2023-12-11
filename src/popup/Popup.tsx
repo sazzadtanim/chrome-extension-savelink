@@ -39,18 +39,20 @@ export const Popup = () => {
   }
 
   return (
-    <main className='w-60 p-5 flex gap-2 justify-center items-center shadow-md '>
+    <main className='w-60 p-5 flex gap-2 justify-center items-center shadow-md bg-black/80'>
       <button
         onClick={postDataToURL}
-        className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded w-fit'
+        className='w-fit button_content button h-[2rem] flex  max-w-fit select-none items-center gap-2 rounded-[10px]  capitalize px-2 ring-2'
       >
-        {savedLink ? '✔️ Saved' : 'Save link'}
+        <p className='text-white z-10 hover:text-black'>
+          {savedLink ? '✔️ Saved' : 'Save link'}
+        </p>
       </button>
       <button
         onClick={gotoUrl}
-        className='bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded w-fit'
+        className='w-fit button_content button h-[2rem] flex  max-w-fit select-none items-center gap-2 rounded-[10px]  capitalize px-2 ring-2'
       >
-        Collections
+        <p className='text-white z-10 hover:text-black'>Collections</p>
       </button>
     </main>
   )

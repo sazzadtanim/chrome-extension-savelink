@@ -1,7 +1,7 @@
 {
   "name": "chrome-extension-save-day-clone",
   "displayName": "React.ts Chrome Extension",
-  "version": "2",
+  "version": "2.1",
   "author": "sazzadtanim",
   "description": "",
   "type": "module",
